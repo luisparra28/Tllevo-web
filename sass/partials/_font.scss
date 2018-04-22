@@ -1,0 +1,51 @@
+/*** Lato ***/
+
+$lato-type-path: "/wp-content/themes/ushipnetwork/type/lato/";
+
+@font-face {
+  font-family: "LatoWeb";
+  font-weight: 400;
+  font-style: normal;
+  src: url($lato-type-path + 'lato-regular.woff') format('woff');
+  text-rendering: optimizeLegibility;
+}
+
+@font-face {
+  font-family: "LatoWeb";
+  font-weight: 700;
+  font-style: normal;
+  src: url($lato-type-path + 'lato-bold.woff') format('woff');
+  text-rendering: optimizeLegibility;
+}
+
+@font-face {
+  font-family: "LatoWeb";
+  font-weight: 900;
+  font-style: normal;
+  src: url($lato-type-path + 'lato-black.woff') format('woff');
+  text-rendering: optimizeLegibility;
+}
+
+@font-face {
+  font-family: "LatoWeb";
+  font-weight: 400;
+  font-style: italic;
+  src: url($lato-type-path + 'lato-regular-italic.woff') format('woff');
+  text-rendering: optimizeLegibility;
+}
+
+@font-face {
+  font-family: "LatoWeb";
+  font-weight: 700;
+  font-style: italic;
+  src: url($lato-type-path + 'lato-bold-italic.woff') format('woff');
+  text-rendering: optimizeLegibility;
+}
+
+@font-face {
+  font-family: "LatoWeb";
+  font-weight: 900;
+  font-style: italic;
+  src: url($lato-type-path + 'lato-black-italic.woff') format('woff');
+  text-rendering: optimizeLegibility;
+}

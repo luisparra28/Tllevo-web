@@ -1,0 +1,327 @@
+/*** Split Screen ***/
+
+.splitScreen {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.splitScreen-row {
+  @media #{$default-break} {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+}
+
+.splitScreen-row a {
+  cursor: pointer;
+}
+
+.splitScreen-row:first-child {
+  flex: 10 0 auto;
+  display: flex;
+}
+
+.splitScreen-row:last-child {
+  flex: 1 0 auto;
+  display: flex;
+}
+
+.splitScreen-panel {
+  position: relative;
+  float: left;
+  width: 50%;
+  margin: 0 auto;
+  @include background-image;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1;
+
+  @media #{$default-break} {
+    float: none;
+    width: 100%;
+    min-height: 275px;
+  }
+}
+
+.splitScreen-panel-container {
+  max-width: 450px;
+  min-height: 395px;
+  padding-left: $section-padding;
+  padding-right: $section-padding;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  z-index: 1;
+
+  @media #{$default-break} {
+    min-height: 150px;
+  }
+}
+
+.splitScreen-panel-headline {
+  font-size: 60px;
+  text-shadow: $base-text-shadow;
+  line-height: 72px;
+  text-align: center;
+  color: $white;
+
+  @media #{$default-break} {
+    font-size: 42px;
+    line-height: 1.2;
+  }
+}
+
+.splitScreen-panel-subheadline {
+  font-size: 16px;
+  text-shadow: $base-text-shadow;
+  line-height: 28px;
+  text-align: center;
+  color: $white;
+
+  @media #{$default-break} {
+    font-size: 14px;
+    text-shadow: none;
+  }
+}
+
+.splitScreen-panel .circledArrow {
+  display: block;
+  width: 40px;
+  height: 40px;
+  margin: 65px auto 90px auto;
+
+  @media #{$default-break} {
+    width: 30px;
+    height: 30px;
+    margin: 20px auto 22px auto;
+  }
+}
+
+.splitScreen-panel .circledArrow path {
+  fill: $white;
+}
+
+.splitScreen-panel:before {
+  position: absolute;
+  content: '';
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+
+  @media #{$default-break} {
+    background-color: #000000;
+    opacity: 0.3;
+  }
+}
+
+.splitScreen-panel.panelHover:before {
+  opacity: 0;
+  transition: all 0.2s ease-in-out;
+}
+
+.splitScreen-panel.panelHover:hover:before {
+  opacity: 1;
+  transition: all 0.2s ease-in-out;
+}
+
+.splitScreen-panel.panelHover:hover {
+  * {
+    transition: all 0.2s ease-in-out;
+  }
+}
+
+.splitScreen-panel.panelHover:hover {
+  .splitScreen-panel-headline {
+    text-shadow: none;
+  }
+
+  .splitScreen-panel-subheadline {
+    text-shadow: none;
+  }
+}
+
+.splitScreen-panel.panelHover:first-child:hover {
+  &:before {
+    background-color: $navy;
+  }
+
+  .splitScreen-panel-headline {
+    color: $bright-blue;
+  }
+
+  .circledArrow path {
+    fill: $bright-blue;
+  }
+}
+
+.splitScreen-panel.panelHover:last-child:hover {
+  &:before {
+    background-color: $bright-blue;
+  }
+
+  .splitScreen-panel-headline {
+    color: $navy;
+  }
+
+  .circledArrow path {
+    fill: $navy;
+  }
+}
+
+.splitScreen-strip {
+  width: 33.3333333%;
+  background-color: $light-grey;
+  z-index: 1;
+  position: relative;
+  float: left;
+  margin: 0 auto;
+  color: $dark-grey;
+  text-transform: uppercase;
+  font-weight: $font-bold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  @media #{$default-break} {
+    width: 100%;
+  }
+
+  &:not(:last-child) {
+    @media #{$default-break} {
+      border-bottom: 1px solid $divider-color;
+    }
+  }
+}
+
+.splitScreen-strip-container {
+  padding-left: $section-padding;
+  padding-right: 50px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  text-align: center;
+
+  @media #{$default-break} {
+    padding-right: $section-padding;
+    margin-bottom: 8px;
+  }
+}
+
+.splitScreen-strip:last-child .splitScreen-strip-container {
+  padding-right: $section-padding;
+}
+
+.splitScreen-strip-headline {
+  margin-bottom: 7px;
+  font-size: 24px;
+  line-height: 1;
+
+  @media #{$default-break} {
+    margin-bottom: 0;
+    font-size: 18px;
+  }
+}
+
+.splitScreen-strip-subheadline {
+  font-size: 14px;
+  line-height: 17px;
+
+  @media #{$default-break} {
+    display: none;
+  }
+}
+
+.splitScreen-strip:hover {
+  background-color: $white;
+  transition: all 0.2s ease-in-out;
+}
+
+.splitScreen-strip:hover .splitScreen-strip-headline {
+  color: $black;
+  transition: all 0.2s ease-in-out;
+}
+
+.splitScreen-strip:hover .splitScreen-strip-subheadline {
+  color: $dark-grey;
+  transition: none;
+}
+
+.splitScreen-strip:after {
+  content:  '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  background: $light-grey;
+  transform-origin: 100% 0;
+  transform: skew(-20deg);
+  z-index: -1;
+
+  @media #{$default-break} {
+    display: none;
+  }
+}
+
+.splitScreen-strip:not(:last-child):after {
+  border-right: 1px solid $divider-color;
+}
+
+.splitScreen-strip:hover:after {
+  background: $white;
+  transition: all 0.2s ease-in-out;
+}
+
+
+
+// Font size adjustments
+.splitScreen-panel.panelFontSmall {
+
+  .splitScreen-panel-headline {
+    font-size: 30px;
+
+    @media #{$default-break} {
+      font-size: 28px;
+    }
+  }
+
+  .splitScreen-panel-subheadline {
+    font-size: 14px;
+
+    @media #{$default-break} {
+      font-size: 12px;
+    }
+  }
+}
+
+.splitScreen-panel.panelFontExtraSmall {
+
+  .splitScreen-panel-headline {
+    font-size: 20px;
+
+    @media #{$default-break} {
+      font-size: 16px;
+    }
+  }
+
+  .splitScreen-panel-subheadline {
+    font-size: 14px;
+
+    @media #{$default-break} {
+      font-size: 12px;
+    }
+  }
+}
+
+.splitScreen-strip.stripFontSmall {
+
+  .splitScreen-strip-headline {
+    font-size: 16px;
+
+    @media #{$default-break} {
+      font-size: 16px;
+    }
+  }
+}
